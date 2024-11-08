@@ -1,49 +1,62 @@
-function cipherForge() {
-    alert("Welcome to CipherForge, where your digital key awaits.");
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-    const userName = prompt("Please, tell us your name:");
-    const numLetters = parseInt(prompt("How many letters would you like in your password?"), 10);
-    const numNumbers = parseInt(prompt("How many numbers would you like in your password?"), 10);
-    const numSymbols = parseInt(prompt("How many symbols would you like in your password?"), 10);
+console.log("Welcome to CipherForge, where your digital key awaits.");
 
-    if (isNaN(numLetters) || isNaN(numNumbers) || isNaN(numSymbols)) {
-        alert("Please enter valid numbers for each component.");
-        return;
-    }
+readline.question("Please, tell us your name: ", (userName) => {
+    readline.question("How many letters would you like in your password? ", (numLetters) => {
+        readline.question("How many numbers would you like in your password? ", (numNumbers) => {
+            readline.question("How many symbols would you like in your password? ", (numSymbols) => {
+                
+                // Convert inputs to integers
+                numLetters = parseInt(numLetters, 10);
+                numNumbers = parseInt(numNumbers, 10);
+                numSymbols = parseInt(numSymbols, 10);
 
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    const numbers = "0123456789";
-    const symbols = "!@#$%^&*()-_=+[]{};:,.<>?";
+                if (isNaN(numLetters) || isNaN(numNumbers) || isNaN(numSymbols)) {
+                    console.log("Please enter valid numbers for each component.");
+                    readline.close();
+                    return;
+                }
 
-    let passwordChars = [];
+                const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                const numbers = "0123456789";
+                const symbols = "!@#$%^&*()-_=+[]{};:,.<>?";
 
-    // Add letters
-    for (let i = 0; i < numLetters; i++) {
-        passwordChars.push(letters.charAt(Math.floor(Math.random() * letters.length)));
-    }
+                let passwordChars = [];
 
-    // Add numbers
-    for (let i = 0; i < numNumbers; i++) {
-        passwordChars.push(numbers.charAt(Math.floor(Math.random() * numbers.length)));
-    }
+                // Add letters
+                for (let i = 0; i < numLetters; i++) {
+                    passwordChars.push(letters.charAt(Math.floor(Math.random() * letters.length)));
+                }
 
-    // Add symbols
-    for (let i = 0; i < numSymbols; i++) {
-        passwordChars.push(symbols.charAt(Math.floor(Math.random() * symbols.length)));
-    }
+                // Add numbers
+                for (let i = 0; i < numNumbers; i++) {
+                    passwordChars.push(numbers.charAt(Math.floor(Math.random() * numbers.length)));
+                }
 
-    // Shuffle to maximize randomness
-    passwordChars = passwordChars.sort(() => Math.random() - 0.5);
+                // Add symbols
+                for (let i = 0; i < numSymbols; i++) {
+                    passwordChars.push(symbols.charAt(Math.floor(Math.random() * symbols.length)));
+                }
 
-    // Build the final password string
-    const password = passwordChars.join("");
+                // Shuffle to maximize randomness
+                passwordChars = passwordChars.sort(() => Math.random() - 0.5);
 
-    // Display the password
-    alert("=".repeat(50) + "\n" +
-          `${userName}, your forged key is ready!\n` +
-          `Your new password: ${password}\n` +
-          "=".repeat(50));
-}
+                // Build the final password string
+                const password = passwordChars.join("");
 
-// Call the function
-cipherForge();
+                // Display the password
+                console.log("\n" + "=".repeat(50));
+                console.log(`${userName}, your forged key is ready!`);
+                console.log(`Your new password: ${password}`);
+                console.log("=".repeat(50));
+
+                readline.close();
+            });
+        });
+    });
+});
+
