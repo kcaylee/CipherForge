@@ -1,5 +1,34 @@
-# CipherForge 🔒
+# 🔐 CipherForge
 
-CipherForge is a robust and user-friendly password generator designed to help users create secure and highly customizable passwords. In today's digital world, where strong passwords are essential for protecting online accounts and sensitive information, CipherForge offers an intuitive solution for generating passwords that meet modern security standards. Users can define the complexity of their passwords by choosing the number of letters, numbers, and symbols, ensuring the result is tailored to their needs.
+**CipherForge** is a robust and user-friendly **password generator** built in JavaScript. It empowers users to create secure and highly customizable passwords that meet modern security standards.
+
+---
+
+## ✨ Key Features
+
+- 🔢 **Custom Length** – Choose the desired password length.
+- 🔠 **Character Control** – Include/exclude:
+  - Uppercase letters
+  - Lowercase letters
+  - Numbers
+  - Symbols
+- 🧠 **Secure Generation** – Built-in logic ensures randomness and complexity.
+- 💡 **User-Friendly Interface** – Simple prompts guide users through the generation process (CLI or web-based).
+
+---
+
+## 💻 Technologies Used
+
+- **JavaScript** – Core logic and password generation engine.
+
+---
+
+## 📌 Why Use CipherForge?
+
+In a digital age where password strength is critical for protecting personal and professional data, **CipherForge** provides a simple yet powerful tool for generating secure, tailored passwords with ease.
+
+---
+
+
 
 
